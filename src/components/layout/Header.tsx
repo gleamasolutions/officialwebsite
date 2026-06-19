@@ -6,6 +6,7 @@ import { useState } from "react";
 import Container from "@/components/layout/Container";
 import DesktopNav from "@/components/navigation/DesktopNav";
 import MobileNav from "@/components/navigation/MobileNav";
+import Logo from "@/components/shared/Logo";
 import { COMPANY } from "@/constants/site";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 import { cn } from "@/lib/utils";
@@ -28,26 +29,15 @@ export default function Header() {
         <div className="flex h-16 items-center justify-between lg:h-20">
           <Link
             href="/"
-            className="group flex flex-col"
+            className="group"
             aria-label={`${COMPANY.name} - Home`}
           >
-            <span
-              className={cn(
-                "text-lg font-bold tracking-tight transition-colors lg:text-xl",
-                isScrolled ? "text-primary" : "text-white",
-                "group-hover:text-secondary",
-              )}
-            >
-              {COMPANY.shortName}
-            </span>
-            <span
-              className={cn(
-                "hidden text-xs font-medium sm:block",
-                isScrolled ? "text-neutral-600" : "text-white/80",
-              )}
-            >
-              {COMPANY.tagline}
-            </span>
+            <Logo
+              variant={isScrolled ? "dark" : "light"}
+              showTagline
+              priority
+              className="transition-opacity group-hover:opacity-90"
+            />
           </Link>
 
           <DesktopNav isScrolled={isScrolled} />

@@ -35,7 +35,7 @@ export default function SectionTitle({
       )}
       <div
         className={cn(
-          "mt-4 h-1 w-16 rounded-full bg-secondary",
+          "mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-secondary via-accent to-secondary",
           align === "center" && "mx-auto",
         )}
         aria-hidden="true"

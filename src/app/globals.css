@@ -73,6 +73,8 @@
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-premium: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px -4px rgb(0 0 128 / 0.08);
+  --shadow-premium-hover: 0 4px 8px rgb(0 0 0 / 0.04), 0 20px 40px -8px rgb(0 0 128 / 0.14), 0 0 0 1px rgb(80 200 120 / 0.12);
 }
 
 @layer base {
@@ -153,5 +155,53 @@
 
   .shadow-xl {
     box-shadow: var(--shadow-xl);
+  }
+
+  .shadow-premium {
+    box-shadow: var(--shadow-premium);
+  }
+
+  .shadow-premium-hover {
+    box-shadow: var(--shadow-premium-hover);
+  }
+
+  .pattern-grid-light {
+    background-image:
+      linear-gradient(rgb(0 0 128 / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(0 0 128 / 0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .pattern-grid-dark {
+    background-image:
+      linear-gradient(rgb(255 255 255 / 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .gold-accent-bar {
+    background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  }
+
+  .section-fade-top-light {
+    background: linear-gradient(to bottom, rgb(248 250 252) 0%, transparent 100%);
+  }
+
+  .section-fade-top-muted {
+    background: linear-gradient(to bottom, rgb(255 255 255) 0%, transparent 100%);
+  }
+
+  .section-fade-top-dark {
+    background: linear-gradient(to bottom, rgb(0 0 128) 0%, transparent 100%);
+  }
+
+  .premium-card {
+    box-shadow: var(--shadow-premium);
+    transition: box-shadow 0.35s ease, transform 0.35s ease, border-color 0.35s ease;
+  }
+
+  .premium-card:hover {
+    box-shadow: var(--shadow-premium-hover);
+    transform: translateY(-4px);
   }
 }

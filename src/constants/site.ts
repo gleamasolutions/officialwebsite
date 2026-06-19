@@ -12,6 +12,15 @@ export const COMPANY = {
   address: "Colombo, Sri Lanka",
 } as const;
 
+export const BRAND = {
+  logo: {
+    light: "/logo/logo-light.svg",
+    dark: "/logo/logo-dark.svg",
+    width: 140,
+    height: 40,
+  },
+} as const;
+
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.gleama.lk";
 
