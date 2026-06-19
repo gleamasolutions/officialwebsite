@@ -108,13 +108,13 @@ export const WHY_CHOOSE_FEATURES: FeatureCard[] = [
 
 export const LEADERSHIP: LeaderCard[] = [
   {
-    name: "Mr. Rajan Perera",
+    name: "Mr. Kosala Perera",
     position: "Chairman",
     preview:
       "Visionary leadership guiding Gleama's strategic direction and corporate governance excellence.",
   },
   {
-    name: "Ms. Anuki Fernando",
+    name: "Mr Charuka Ranasinghe",
     position: "CEO / Director",
     preview:
       "Driving operational excellence and sustainable growth across all investment verticals.",
