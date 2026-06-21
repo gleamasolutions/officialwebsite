@@ -1,38 +1,38 @@
-import Container from "@/components/layout/Container";
 import PageLayout from "@/components/layout/PageLayout";
+import SectorPageContent from "@/components/sectors/SectorPageContent";
 import SeoSchema from "@/components/seo/SeoSchema";
 import PageHero from "@/components/shared/PageHero";
+import { CSE_CONTENT } from "@/constants/sectors-content";
 import { createPageMetadata } from "@/lib/metadata";
-import { createWebPageSchema } from "@/lib/json-ld";
+import { createWebPageWithBreadcrumbSchemas } from "@/lib/json-ld";
 
 export const metadata = createPageMetadata({
-  title: "CSE",
-  description:
-    "Gleama's capital market investments on the Colombo Stock Exchange (CSE).",
+  title: CSE_CONTENT.seo.title,
+  description: CSE_CONTENT.seo.description,
   path: "/sectors/cse",
+  keywords: CSE_CONTENT.seo.keywords,
 });
 
 export default function CsePage() {
   return (
     <PageLayout>
       <SeoSchema
-        schema={createWebPageSchema(
-          "CSE",
+        schema={createWebPageWithBreadcrumbSchemas(
+          CSE_CONTENT.heroTitle,
           "/sectors/cse",
-          "Colombo Stock Exchange investments.",
+          CSE_CONTENT.seo.description,
+          [
+            { name: "Home", path: "/" },
+            { name: "Sectors", path: "/sectors" },
+            { name: CSE_CONTENT.heroTitle, path: "/sectors/cse" },
+          ],
         )}
       />
       <PageHero
-        title="CSE"
-        description="Capital market investments on the Colombo Stock Exchange."
+        title={CSE_CONTENT.heroTitle}
+        description={CSE_CONTENT.heroSubtitle}
       />
-      <Container className="py-16">
-        <section aria-label="CSE sector content placeholder">
-          <p className="text-body-lg text-neutral-600">
-            CSE sector content will be developed in upcoming phases.
-          </p>
-        </section>
-      </Container>
+      <SectorPageContent data={CSE_CONTENT} />
     </PageLayout>
   );
 }

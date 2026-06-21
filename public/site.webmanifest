@@ -1,0 +1,24 @@
+{
+  "name": "Gleama (Pvt) Ltd",
+  "short_name": "Gleama",
+  "description": "Gleama (Pvt) Ltd is a diversified investment company delivering strategic value across capital markets, unit trusts, private equity, and gold investments.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#000080",
+  "theme_color": "#000080",
+  "lang": "en-LK",
+  "icons": [
+    {
+      "src": "/icon",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-icon",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

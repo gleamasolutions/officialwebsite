@@ -1,38 +1,26 @@
-import Container from "@/components/layout/Container";
 import PageLayout from "@/components/layout/PageLayout";
+import ContactSections from "@/components/contact/ContactSections";
 import SeoSchema from "@/components/seo/SeoSchema";
 import PageHero from "@/components/shared/PageHero";
 import { createPageMetadata } from "@/lib/metadata";
-import { createWebPageSchema } from "@/lib/json-ld";
+import { createContactPageSchemas } from "@/lib/json-ld";
 
 export const metadata = createPageMetadata({
   title: "Contact",
   description:
-    "Get in touch with Gleama (Pvt) Ltd for investment inquiries and corporate information.",
+    "Contact Gleama (Pvt) Ltd to discuss investment opportunities, partnerships and business inquiries.",
   path: "/contact",
 });
 
 export default function ContactPage() {
   return (
     <PageLayout>
-      <SeoSchema
-        schema={createWebPageSchema(
-          "Contact",
-          "/contact",
-          "Contact Gleama (Pvt) Ltd.",
-        )}
-      />
+      <SeoSchema schema={createContactPageSchemas()} />
       <PageHero
-        title="Contact Us"
-        description="Reach out to our team for inquiries and partnership opportunities."
+        title="Contact Gleama"
+        description="Let's discuss investment opportunities, partnerships and business inquiries."
       />
-      <Container className="py-16">
-        <section aria-label="Contact page content placeholder">
-          <p className="text-body-lg text-neutral-600">
-            Contact form and details will be developed in upcoming phases.
-          </p>
-        </section>
-      </Container>
+      <ContactSections />
     </PageLayout>
   );
 }

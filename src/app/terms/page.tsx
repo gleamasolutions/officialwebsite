@@ -1,14 +1,15 @@
-import Container from "@/components/layout/Container";
 import PageLayout from "@/components/layout/PageLayout";
+import LegalDocument from "@/components/legal/LegalDocument";
 import SeoSchema from "@/components/seo/SeoSchema";
 import PageHero from "@/components/shared/PageHero";
+import { TERMS_OF_SERVICE } from "@/constants/legal-content";
 import { createPageMetadata } from "@/lib/metadata";
 import { createWebPageSchema } from "@/lib/json-ld";
 
 export const metadata = createPageMetadata({
-  title: "Terms of Service",
+  title: "Terms & Conditions",
   description:
-    "Review the terms of service governing the use of Gleama (Pvt) Ltd website and services.",
+    "Review the terms and conditions governing the use of Gleama (Pvt) Ltd website and services.",
   path: "/terms",
 });
 
@@ -17,23 +18,20 @@ export default function TermsPage() {
     <PageLayout>
       <SeoSchema
         schema={createWebPageSchema(
-          "Terms of Service",
+          "Terms & Conditions",
           "/terms",
-          "Gleama terms of service.",
+          "Gleama (Pvt) Ltd terms and conditions.",
         )}
       />
       <PageHero
-        title="Terms of Service"
+        title="Terms & Conditions"
         description="Terms and conditions for using our website and services."
         compact
       />
-      <Container className="py-16">
-        <section aria-label="Terms of service content placeholder">
-          <p className="text-body-lg text-neutral-600">
-            Terms of service content will be developed in upcoming phases.
-          </p>
-        </section>
-      </Container>
+      <LegalDocument
+        content={TERMS_OF_SERVICE}
+        ariaLabel="Terms and conditions document"
+      />
     </PageLayout>
   );
 }

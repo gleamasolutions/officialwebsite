@@ -1,38 +1,38 @@
-import Container from "@/components/layout/Container";
 import PageLayout from "@/components/layout/PageLayout";
+import SectorPageContent from "@/components/sectors/SectorPageContent";
 import SeoSchema from "@/components/seo/SeoSchema";
 import PageHero from "@/components/shared/PageHero";
+import { GOLD_CONTENT } from "@/constants/sectors-content";
 import { createPageMetadata } from "@/lib/metadata";
-import { createWebPageSchema } from "@/lib/json-ld";
+import { createWebPageWithBreadcrumbSchemas } from "@/lib/json-ld";
 
 export const metadata = createPageMetadata({
-  title: "Gold",
-  description:
-    "Gleama's gold investment offerings as a strategic store of value.",
+  title: GOLD_CONTENT.seo.title,
+  description: GOLD_CONTENT.seo.description,
   path: "/sectors/gold",
+  keywords: GOLD_CONTENT.seo.keywords,
 });
 
 export default function GoldPage() {
   return (
     <PageLayout>
       <SeoSchema
-        schema={createWebPageSchema(
-          "Gold",
+        schema={createWebPageWithBreadcrumbSchemas(
+          GOLD_CONTENT.heroTitle,
           "/sectors/gold",
-          "Gold investment offerings.",
+          GOLD_CONTENT.seo.description,
+          [
+            { name: "Home", path: "/" },
+            { name: "Sectors", path: "/sectors" },
+            { name: GOLD_CONTENT.heroTitle, path: "/sectors/gold" },
+          ],
         )}
       />
       <PageHero
-        title="Gold"
-        description="Strategic gold investments as a hedge and store of value."
+        title={GOLD_CONTENT.heroTitle}
+        description={GOLD_CONTENT.heroSubtitle}
       />
-      <Container className="py-16">
-        <section aria-label="Gold sector content placeholder">
-          <p className="text-body-lg text-neutral-600">
-            Gold sector content will be developed in upcoming phases.
-          </p>
-        </section>
-      </Container>
+      <SectorPageContent data={GOLD_CONTENT} />
     </PageLayout>
   );
 }

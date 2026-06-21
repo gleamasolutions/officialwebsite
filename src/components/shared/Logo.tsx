@@ -1,75 +1,64 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
-import { BRAND, COMPANY } from "@/constants/site";
+import { motion } from "framer-motion";
+import { COMPANY } from "@/constants/site";
 import { cn } from "@/lib/utils";
 
-type LogoVariant = "light" | "dark";
+const LOGO_SRC = "/images/logo/gleama-logo.jpeg";
+const LOGO_WIDTH = 300;
+const LOGO_HEIGHT = 120;
+
+type LogoVariant = "header" | "footer" | "preloader";
 
 interface LogoProps {
   variant?: LogoVariant;
-  showTagline?: boolean;
   className?: string;
   priority?: boolean;
 }
 
+const variantClasses: Record<LogoVariant, string> = {
+  header: "h-[45px] w-auto object-contain lg:h-[60px]",
+  footer: "h-[80px] w-auto object-contain",
+  preloader: "h-[72px] w-auto object-contain sm:h-[80px]",
+};
+
+const sizesByVariant: Record<LogoVariant, string> = {
+  header: "(max-width: 1024px) 200px, 300px",
+  footer: "300px",
+  preloader: "300px",
+};
+
+const MotionImage = motion.create(Image);
+
 export default function Logo({
-  variant = "dark",
-  showTagline = false,
+  variant = "header",
   className,
   priority = false,
 }: LogoProps) {
-  const [imgError, setImgError] = useState(false);
-  const src =
-    variant === "light" ? BRAND.logo.light : BRAND.logo.dark;
+  const sharedProps = {
+    src: LOGO_SRC,
+    alt: COMPANY.name,
+    width: LOGO_WIDTH,
+    height: LOGO_HEIGHT,
+    sizes: sizesByVariant[variant],
+    priority,
+    className: cn("h-auto w-auto object-contain", variantClasses[variant], className),
+  };
 
-  if (imgError) {
+  const { alt, ...imageProps } = sharedProps;
+
+  if (variant === "preloader") {
     return (
-      <span className={cn("inline-flex flex-col", className)}>
-        <span
-          className={cn(
-            "text-lg font-bold tracking-tight lg:text-xl",
-            variant === "light" ? "text-white" : "text-primary",
-          )}
-        >
-          {COMPANY.shortName}
-        </span>
-        {showTagline && (
-          <span
-            className={cn(
-              "text-xs font-medium",
-              variant === "light" ? "text-white/80" : "text-neutral-600",
-            )}
-          >
-            {COMPANY.tagline}
-          </span>
-        )}
-      </span>
+      <MotionImage
+        alt={alt}
+        {...imageProps}
+        initial={{ opacity: 0.7, scale: 0.97 }}
+        animate={{ opacity: [0.75, 1, 0.75], scale: [0.98, 1, 0.98] }}
+        transition={{ duration: 1.8, ease: "easeInOut", repeat: Infinity }}
+      />
     );
   }
 
-  return (
-    <span className={cn("inline-flex flex-col", className)}>
-      <Image
-        src={src}
-        alt={COMPANY.name}
-        width={BRAND.logo.width}
-        height={BRAND.logo.height}
-        className="h-8 w-auto lg:h-10"
-        priority={priority}
-        onError={() => setImgError(true)}
-      />
-      {showTagline && (
-        <span
-          className={cn(
-            "mt-0.5 text-xs font-medium",
-            variant === "light" ? "text-white/80" : "text-neutral-600",
-          )}
-        >
-          {COMPANY.tagline}
-        </span>
-      )}
-    </span>
-  );
+  return <Image alt={alt} {...imageProps} />;
 }

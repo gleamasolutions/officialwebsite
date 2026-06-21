@@ -1,14 +1,15 @@
-import Container from "@/components/layout/Container";
 import PageLayout from "@/components/layout/PageLayout";
+import LegalDocument from "@/components/legal/LegalDocument";
 import SeoSchema from "@/components/seo/SeoSchema";
 import PageHero from "@/components/shared/PageHero";
+import { PRIVACY_POLICY } from "@/constants/legal-content";
 import { createPageMetadata } from "@/lib/metadata";
 import { createWebPageSchema } from "@/lib/json-ld";
 
 export const metadata = createPageMetadata({
   title: "Privacy Policy",
   description:
-    "Read the privacy policy of Gleama (Pvt) Ltd regarding data collection and usage.",
+    "Read the privacy policy of Gleama (Pvt) Ltd regarding data collection, usage, and protection.",
   path: "/privacy-policy",
 });
 
@@ -19,7 +20,7 @@ export default function PrivacyPolicyPage() {
         schema={createWebPageSchema(
           "Privacy Policy",
           "/privacy-policy",
-          "Gleama privacy policy.",
+          "Gleama (Pvt) Ltd privacy policy.",
         )}
       />
       <PageHero
@@ -27,13 +28,10 @@ export default function PrivacyPolicyPage() {
         description="How we collect, use, and protect your personal information."
         compact
       />
-      <Container className="py-16">
-        <section aria-label="Privacy policy content placeholder">
-          <p className="text-body-lg text-neutral-600">
-            Privacy policy content will be developed in upcoming phases.
-          </p>
-        </section>
-      </Container>
+      <LegalDocument
+        content={PRIVACY_POLICY}
+        ariaLabel="Privacy policy document"
+      />
     </PageLayout>
   );
 }

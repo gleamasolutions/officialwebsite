@@ -1,7 +1,8 @@
-import Container from "@/components/layout/Container";
 import PageLayout from "@/components/layout/PageLayout";
+import LegalDocument from "@/components/legal/LegalDocument";
 import SeoSchema from "@/components/seo/SeoSchema";
 import PageHero from "@/components/shared/PageHero";
+import { COOKIE_POLICY } from "@/constants/legal-content";
 import { createPageMetadata } from "@/lib/metadata";
 import { createWebPageSchema } from "@/lib/json-ld";
 
@@ -19,7 +20,7 @@ export default function CookiePolicyPage() {
         schema={createWebPageSchema(
           "Cookie Policy",
           "/cookie-policy",
-          "Gleama cookie policy.",
+          "Gleama (Pvt) Ltd cookie policy.",
         )}
       />
       <PageHero
@@ -27,13 +28,7 @@ export default function CookiePolicyPage() {
         description="Information about cookies and tracking technologies we use."
         compact
       />
-      <Container className="py-16">
-        <section aria-label="Cookie policy content placeholder">
-          <p className="text-body-lg text-neutral-600">
-            Cookie policy content will be developed in upcoming phases.
-          </p>
-        </section>
-      </Container>
+      <LegalDocument content={COOKIE_POLICY} ariaLabel="Cookie policy document" />
     </PageLayout>
   );
 }

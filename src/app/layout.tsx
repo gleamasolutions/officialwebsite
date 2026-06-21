@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
+import CookieBanner from "@/components/cookies/CookieBanner";
+import Analytics from "@/components/seo/Analytics";
 import SeoSchema from "@/components/seo/SeoSchema";
 import { rootMetadata } from "@/lib/metadata";
 import { createOrganizationSchema } from "@/lib/json-ld";
@@ -11,6 +13,8 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  preload: true,
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = rootMetadata;
@@ -35,6 +39,8 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <CookieBanner />
+        <Analytics />
       </body>
     </html>
   );

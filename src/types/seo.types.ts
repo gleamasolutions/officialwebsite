@@ -43,8 +43,72 @@ export interface JsonLdWebPage {
   name: string;
   description?: string;
   url: string;
+  isPartOf?: {
+    "@type": "WebSite";
+    name: string;
+    url: string;
+  };
 }
 
-export type JsonLdSchema = JsonLdOrganization | JsonLdWebPage | Record<string, unknown>;
+export interface JsonLdBreadcrumbList {
+  "@context": "https://schema.org";
+  "@type": "BreadcrumbList";
+  itemListElement: Array<{
+    "@type": "ListItem";
+    position: number;
+    name: string;
+    item: string;
+  }>;
+}
+
+export interface JsonLdContactPage {
+  "@context": "https://schema.org";
+  "@type": "ContactPage";
+  name: string;
+  description?: string;
+  url: string;
+  mainEntity: {
+    "@type": "Organization";
+    name: string;
+    url: string;
+    email?: string;
+    telephone?: string;
+  };
+}
+
+export interface JsonLdBlogPosting {
+  "@context": "https://schema.org";
+  "@type": "BlogPosting" | "Article";
+  headline: string;
+  description?: string;
+  url: string;
+  datePublished: string;
+  author: {
+    "@type": "Organization" | "Person";
+    name: string;
+  };
+  publisher: {
+    "@type": "Organization";
+    name: string;
+    url: string;
+    logo?: {
+      "@type": "ImageObject";
+      url: string;
+    };
+  };
+  image?: string;
+  mainEntityOfPage?: {
+    "@type": "WebPage";
+    "@id": string;
+  };
+}
+
+export type JsonLdSchema =
+  | JsonLdOrganization
+  | JsonLdWebPage
+  | JsonLdBlogPosting
+  | JsonLdBreadcrumbList
+  | JsonLdContactPage
+  | Record<string, unknown>;
 
 export type PageMetadata = Metadata;

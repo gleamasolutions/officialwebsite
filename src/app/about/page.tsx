@@ -1,38 +1,45 @@
-import Container from "@/components/layout/Container";
 import PageLayout from "@/components/layout/PageLayout";
+import AboutBoardOfDirectors from "@/components/about/AboutBoardOfDirectors";
+import AboutCoreValues from "@/components/about/AboutCoreValues";
+import AboutCorporateInfo from "@/components/about/AboutCorporateInfo";
+import AboutOurCompany from "@/components/about/AboutOurCompany";
+import AboutVisionMission from "@/components/about/AboutVisionMission";
 import SeoSchema from "@/components/seo/SeoSchema";
 import PageHero from "@/components/shared/PageHero";
+import { ABOUT_HERO, ABOUT_SEO } from "@/constants/about";
 import { createPageMetadata } from "@/lib/metadata";
-import { createWebPageSchema } from "@/lib/json-ld";
+import { createWebPageWithBreadcrumbSchemas } from "@/lib/json-ld";
 
 export const metadata = createPageMetadata({
-  title: "About Us",
-  description:
-    "Learn about Gleama (Pvt) Ltd, a diversified investment company committed to strategic growth and sustainable value creation.",
+  title: ABOUT_SEO.title,
+  description: ABOUT_SEO.description,
   path: "/about",
+  keywords: [...ABOUT_SEO.keywords],
 });
 
 export default function AboutPage() {
   return (
     <PageLayout>
       <SeoSchema
-        schema={createWebPageSchema(
-          "About Us",
+        schema={createWebPageWithBreadcrumbSchemas(
+          "About Gleama",
           "/about",
-          "Learn about Gleama (Pvt) Ltd.",
+          ABOUT_SEO.description,
+          [
+            { name: "Home", path: "/" },
+            { name: "About", path: "/about" },
+          ],
         )}
       />
       <PageHero
-        title="About Us"
-        description="Discover our story, mission, and commitment to diversified investments."
+        title={ABOUT_HERO.title}
+        description={ABOUT_HERO.subtitle}
       />
-      <Container className="py-16">
-        <section aria-label="About page content placeholder">
-          <p className="text-body-lg text-neutral-600">
-            About page content will be developed in upcoming phases.
-          </p>
-        </section>
-      </Container>
+      <AboutOurCompany />
+      <AboutVisionMission />
+      <AboutCoreValues />
+      <AboutCorporateInfo />
+      <AboutBoardOfDirectors />
     </PageLayout>
   );
 }

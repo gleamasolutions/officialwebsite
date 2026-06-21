@@ -14,10 +14,9 @@ export const COMPANY = {
 
 export const BRAND = {
   logo: {
-    light: "/logo/logo-light.svg",
-    dark: "/logo/logo-dark.svg",
-    width: 140,
-    height: 40,
+    src: "/images/logo/gleama-logo.jpeg",
+    width: 300,
+    height: 120,
   },
 } as const;
 
@@ -31,10 +30,10 @@ export const NAVIGATION: NavItem[] = [
     label: "Sectors",
     href: "/sectors",
     children: [
-      { label: "CSE", href: "/sectors/cse" },
+      { label: "Colombo Stock Exchange", href: "/sectors/cse" },
       { label: "Unit Trust", href: "/sectors/unit-trust" },
       { label: "Private Equity", href: "/sectors/private-equity" },
-      { label: "Gold", href: "/sectors/gold" },
+      { label: "Gold Investments", href: "/sectors/gold" },
     ],
   },
   { label: "Blog", href: "/blog" },
@@ -97,7 +96,7 @@ export const SEO_DEFAULTS: SeoDefaults = {
     "private equity",
     "gold investment",
   ],
-  ogImage: "/og-image.jpg",
+  ogImage: "/og-image",
   twitterHandle: "@gleama",
   locale: "en_LK",
   type: "website",

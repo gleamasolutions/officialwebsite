@@ -1,38 +1,37 @@
-import Container from "@/components/layout/Container";
 import PageLayout from "@/components/layout/PageLayout";
+import SectorsGrid from "@/components/sectors/SectorsGrid";
 import SeoSchema from "@/components/seo/SeoSchema";
 import PageHero from "@/components/shared/PageHero";
+import { SECTORS_HERO, SECTORS_SEO } from "@/constants/sectors-content";
 import { createPageMetadata } from "@/lib/metadata";
-import { createWebPageSchema } from "@/lib/json-ld";
+import { createWebPageWithBreadcrumbSchemas } from "@/lib/json-ld";
 
 export const metadata = createPageMetadata({
-  title: "Investment Sectors",
-  description:
-    "Explore Gleama's diversified investment sectors including CSE, unit trusts, private equity, and gold.",
+  title: SECTORS_SEO.title,
+  description: SECTORS_SEO.description,
   path: "/sectors",
+  keywords: [...SECTORS_SEO.keywords],
 });
 
 export default function SectorsPage() {
   return (
     <PageLayout>
       <SeoSchema
-        schema={createWebPageSchema(
+        schema={createWebPageWithBreadcrumbSchemas(
           "Investment Sectors",
           "/sectors",
-          "Gleama investment sectors.",
+          SECTORS_SEO.description,
+          [
+            { name: "Home", path: "/" },
+            { name: "Sectors", path: "/sectors" },
+          ],
         )}
       />
       <PageHero
-        title="Investment Sectors"
-        description="A diversified portfolio across key investment verticals."
+        title={SECTORS_HERO.title}
+        description={SECTORS_HERO.subtitle}
       />
-      <Container className="py-16">
-        <section aria-label="Sectors page content placeholder">
-          <p className="text-body-lg text-neutral-600">
-            Sector overview content will be developed in upcoming phases.
-          </p>
-        </section>
-      </Container>
+      <SectorsGrid />
     </PageLayout>
   );
 }

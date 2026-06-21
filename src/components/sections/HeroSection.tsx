@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect } from "react";
 import Container from "@/components/layout/Container";
 import Button from "@/components/shared/Button";
 import SectionBackground from "@/components/shared/SectionBackground";
@@ -47,66 +46,13 @@ const LABEL_POSITIONS = ALLOCATION.map((item) => {
 });
 
 function HeroVisualization() {
-  let cumulative = 0;
-  const slices = ALLOCATION.map((item) => {
-    const start = cumulative;
-    cumulative += (item.value / 100) * 360;
-    return { ...item, startAngle: start, endAngle: cumulative };
-  });
-
-  const labelPositions = LABEL_POSITIONS.map((item) => ({
-    label: item.label,
-    left: item.left,
-    top: item.top,
-  }));
-
-  // #region agent log
-  fetch("http://127.0.0.1:7698/ingest/1fa7a85a-8150-4b97-9210-e77bb9fe77ae", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "X-Debug-Session-Id": "6f22ba",
-    },
-    body: JSON.stringify({
-      sessionId: "6f22ba",
-      runId: "post-fix",
-      hypothesisId: "A",
-      location: "HeroSection.tsx:HeroVisualization:render",
-      message: "label positions at render",
-      data: {
-        env: typeof window === "undefined" ? "server" : "client",
-        labelPositions,
-      },
-      timestamp: Date.now(),
-    }),
-  }).catch(() => {});
-  // #endregion
-
-  useEffect(() => {
-    // #region agent log
-    fetch("http://127.0.0.1:7698/ingest/1fa7a85a-8150-4b97-9210-e77bb9fe77ae", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Debug-Session-Id": "6f22ba",
-      },
-      body: JSON.stringify({
-        sessionId: "6f22ba",
-        runId: "post-fix",
-        hypothesisId: "verify",
-        location: "HeroSection.tsx:HeroVisualization:useEffect",
-        message: "client mounted - static wrapper fix applied",
-        data: {
-          labelPositions: LABEL_POSITIONS.map((l) => ({
-            label: l.label,
-            left: l.left,
-            top: l.top,
-          })),
-        },
-        timestamp: Date.now(),
-      }),
-    }).catch(() => {});
-    // #endregion
+  const slices = ALLOCATION.reduce<
+    Array<(typeof ALLOCATION)[number] & { startAngle: number; endAngle: number }>
+  >((acc, item) => {
+    const startAngle = acc.length > 0 ? acc[acc.length - 1].endAngle : 0;
+    const endAngle = startAngle + (item.value / 100) * 360;
+    acc.push({ ...item, startAngle, endAngle });
+    return acc;
   }, []);
 
   return (

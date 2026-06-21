@@ -4,7 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { startTransition, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
+import Logo from "@/components/shared/Logo";
 import { NAVIGATION } from "@/constants/site";
 import { cn } from "@/lib/utils";
 
@@ -16,71 +18,91 @@ interface MobileNavProps {
 export default function MobileNav({ open, onClose }: MobileNavProps) {
   const pathname = usePathname();
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  const handleClose = () => {
+    setExpandedItem(null);
+    onClose();
+  };
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "";
-      setExpandedItem(null);
+      document.body.style.overflow = "auto";
     }
+
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = "auto";
     };
   }, [open]);
 
   useEffect(() => {
-    onClose();
+    startTransition(() => {
+      setExpandedItem(null);
+      onClose();
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
-  return (
+  if (!mounted) {
+    return null;
+  }
+
+  return createPortal(
     <AnimatePresence>
       {open && (
-        <>
+        <div
+          className="fixed inset-0 top-0 left-0 z-[9999] h-[100vh] w-full lg:hidden"
+          role="presentation"
+        >
           <motion.div
-            className="fixed inset-0 z-50 bg-black/50 lg:hidden"
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={onClose}
+            onClick={handleClose}
             aria-hidden="true"
           />
 
           <motion.nav
             id="mobile-navigation"
-            className="fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-white shadow-xl lg:hidden"
+            className="absolute top-0 right-0 flex h-full w-full max-w-sm flex-col bg-primary shadow-2xl"
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
-            transition={{ type: "tween", duration: 0.3 }}
+            transition={{ type: "tween", duration: 0.35, ease: "easeOut" }}
             aria-label="Mobile navigation"
             role="dialog"
             aria-modal="true"
           >
-            <div className="flex h-16 items-center justify-between border-b border-neutral-100 px-4">
-              <span className="text-lg font-bold text-primary">Menu</span>
+            <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
+              <Logo variant="header" />
               <button
                 type="button"
-                onClick={onClose}
-                className="rounded-md p-2 text-neutral-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary"
+                onClick={handleClose}
+                className="rounded-md p-2 text-white/80 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                 aria-label="Close navigation menu"
               >
                 <X className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
 
-            <ul className="overflow-y-auto px-4 py-4">
+            <ul className="flex-1 overflow-y-auto px-4 py-4">
               {NAVIGATION.map((item) => {
                 const isActive = pathname === item.href;
 
                 if (item.children) {
                   const isExpanded = expandedItem === item.href;
                   return (
-                    <li key={item.href} className="border-b border-neutral-100">
+                    <li key={item.href} className="border-b border-white/10">
                       <button
                         type="button"
-                        className="flex w-full items-center justify-between py-4 text-left text-base font-medium text-neutral-800"
+                        className="flex w-full items-center justify-between py-4 text-left text-base font-medium text-white"
                         onClick={() =>
                           setExpandedItem(isExpanded ? null : item.href)
                         }
@@ -89,42 +111,52 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
                         {item.label}
                         <ChevronDown
                           className={cn(
-                            "h-5 w-5 transition-transform",
+                            "h-5 w-5 transition-transform duration-300",
                             isExpanded && "rotate-180",
                           )}
                           aria-hidden="true"
                         />
                       </button>
-                      {isExpanded && (
-                        <ul className="pb-4 pl-4">
-                          {item.children.map((child) => (
-                            <li key={child.href}>
-                              <Link
-                                href={child.href}
-                                className={cn(
-                                  "block py-2 text-sm",
-                                  pathname === child.href
-                                    ? "font-medium text-secondary"
-                                    : "text-neutral-600",
-                                )}
-                              >
-                                {child.label}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
+                      <AnimatePresence>
+                        {isExpanded && (
+                          <motion.ul
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.25 }}
+                            className="overflow-hidden pb-3 pl-3"
+                          >
+                            {item.children.map((child) => (
+                              <li key={child.href}>
+                                <Link
+                                  href={child.href}
+                                  onClick={handleClose}
+                                  className={cn(
+                                    "block rounded-lg px-3 py-2.5 text-sm transition-colors",
+                                    pathname === child.href
+                                      ? "bg-accent/20 font-medium text-accent"
+                                      : "text-white/75 hover:bg-white/5 hover:text-white",
+                                  )}
+                                >
+                                  {child.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </motion.ul>
+                        )}
+                      </AnimatePresence>
                     </li>
                   );
                 }
 
                 return (
-                  <li key={item.href} className="border-b border-neutral-100">
+                  <li key={item.href} className="border-b border-white/10">
                     <Link
                       href={item.href}
+                      onClick={handleClose}
                       className={cn(
-                        "block py-4 text-base font-medium",
-                        isActive ? "text-secondary" : "text-neutral-800",
+                        "block py-4 text-base font-medium transition-colors",
+                        isActive ? "text-accent" : "text-white hover:text-accent",
                       )}
                       aria-current={isActive ? "page" : undefined}
                     >
@@ -134,9 +166,20 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
                 );
               })}
             </ul>
+
+            <div className="border-t border-white/10 p-5">
+              <Link
+                href="/contact"
+                onClick={handleClose}
+                className="flex w-full items-center justify-center rounded-md border-2 border-accent px-5 py-3 text-sm font-semibold text-accent transition-all duration-300 hover:bg-accent hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              >
+                Invest With Us
+              </Link>
+            </div>
           </motion.nav>
-        </>
+        </div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   );
 }

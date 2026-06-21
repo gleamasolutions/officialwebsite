@@ -45,22 +45,9 @@ export default function Preloader() {
         >
           <SectionBackground tone="dark" />
 
-          <div className="relative flex flex-col items-center">
-            <div className="relative overflow-hidden rounded-xl px-6 py-5">
-              <Logo variant="light" priority />
-              <motion.div
-                className="pointer-events-none absolute inset-0 gold-accent-bar opacity-40"
-                initial={{ x: "-120%", opacity: 0 }}
-                animate={{ x: "120%", opacity: [0, 1, 0] }}
-                transition={{
-                  duration: 1.4,
-                  ease: "easeInOut",
-                  repeat: 1,
-                  repeatDelay: 0.15,
-                }}
-              />
-            </div>
-            <p className="mt-4 text-sm tracking-[0.25em] text-white/50 uppercase">
+          <div className="relative flex flex-col items-center justify-center">
+            <Logo variant="preloader" priority />
+            <p className="mt-6 text-sm tracking-[0.25em] text-white/50 uppercase">
               {COMPANY.tagline}
             </p>
           </div>
