@@ -32,15 +32,15 @@ export default function CompanyOverview() {
           </div>
 
           <div
-            className="grid grid-cols-2 gap-4 sm:gap-6"
+            className="grid grid-cols-[repeat(2,minmax(8.75rem,1fr))] items-stretch gap-4 sm:grid-cols-[repeat(2,minmax(9.75rem,1fr))] sm:gap-6"
             role="list"
             aria-label="Company highlights"
           >
             {COMPANY_STATS.map((stat, index) => (
-              <SlideUp key={stat.label} delay={0.1 * index}>
+              <SlideUp key={stat.label} delay={0.1 * index} className="h-full">
                 <div
                   className={cn(
-                    "group relative overflow-hidden rounded-xl border border-neutral-100/80 bg-white p-6",
+                    "group relative flex h-full min-h-[7.25rem] flex-col justify-center overflow-hidden rounded-xl border border-neutral-100/80 bg-white p-6",
                     "premium-card",
                   )}
                   role="listitem"
@@ -49,7 +49,7 @@ export default function CompanyOverview() {
                     className="absolute top-0 right-4 left-4 h-px gold-accent-bar opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                     aria-hidden="true"
                   />
-                  <p className="text-2xl font-bold text-primary transition-colors duration-300 group-hover:text-secondary sm:text-3xl">
+                  <p className="whitespace-nowrap text-2xl font-bold text-primary transition-colors duration-300 group-hover:text-secondary sm:text-3xl">
                     {stat.value}
                   </p>
                   <p className="mt-2 text-sm font-medium text-neutral-600">
