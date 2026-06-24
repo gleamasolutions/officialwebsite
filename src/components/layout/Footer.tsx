@@ -1,30 +1,31 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { Mail, MapPin, Phone } from "lucide-react";
 import Container from "@/components/layout/Container";
 import ScrollToTop from "@/components/layout/ScrollToTop";
-import Logo from "@/components/shared/Logo";
-import SectionBackground from "@/components/shared/SectionBackground";
+import BrandLockup from "@/components/shared/BrandLockup";
 import { COMPANY } from "@/constants/site";
 
 const FOOTER_COMPANY_LINKS = [
   { label: "About Us", href: "/about" },
-  { label: "Vision & Mission", href: "/about" },
   { label: "Leadership", href: "/about" },
+  { label: "Vision & Mission", href: "/about" },
+  { label: "Sustainability", href: "/sustainability" },
   { label: "Contact Us", href: "/contact" },
 ];
 
-const FOOTER_SECTOR_LINKS = [
+const FOOTER_INVESTMENT_LINKS = [
   { label: "Colombo Stock Exchange", href: "/sectors/cse" },
-  { label: "Unit Trust Funds", href: "/sectors/unit-trust" },
-  { label: "Private Equity Investments", href: "/sectors/private-equity" },
+  { label: "Unit Trust", href: "/sectors/unit-trust" },
+  { label: "Private Equity", href: "/sectors/private-equity" },
   { label: "Gold Investments", href: "/sectors/gold" },
 ];
 
 const FOOTER_RESOURCE_LINKS = [
   { label: "Insights & Articles", href: "/blog" },
-  { label: "Market Updates", href: "/blog" },
-  { label: "Reports", href: "/blog" },
+  { label: "News & Updates", href: "/blog" },
   { label: "FAQs", href: "/contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const FOOTER_LEGAL_LINKS = [
@@ -68,29 +69,55 @@ function YouTubeIcon({ className }: { className?: string }) {
 const SOCIAL_LINKS = [
   { label: "LinkedIn", href: "#", icon: LinkedInIcon },
   { label: "Facebook", href: "#", icon: FacebookIcon },
-  { label: "Twitter/X", href: "#", icon: XIcon },
+  { label: "X", href: "#", icon: XIcon },
   { label: "YouTube", href: "#", icon: YouTubeIcon },
 ];
 
+function FooterColumn({
+  title,
+  children,
+}: {
+  title: string;
+  children: ReactNode;
+}) {
+  return (
+    <div>
+      <h3 className="text-sm font-semibold tracking-[0.18em] text-accent uppercase">
+        {title}
+      </h3>
+      <div
+        className="mt-3 mb-5 h-px w-12 bg-gradient-to-r from-accent via-secondary to-transparent"
+        aria-hidden="true"
+      />
+      {children}
+    </div>
+  );
+}
+
 export default function Footer() {
   return (
-    <footer className="relative bg-primary text-white" role="contentinfo">
-      <SectionBackground tone="dark" pattern />
+    <footer className="relative footer-premium-gradient text-white" role="contentinfo">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_15%_0%,rgba(80,200,120,0.14),transparent_55%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_100%,rgba(212,175,55,0.12),transparent_50%)]" />
+        <div className="absolute inset-0 pattern-grid-dark opacity-[0.35]" />
+      </div>
+
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-px gold-accent-bar opacity-80"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px gold-accent-bar opacity-90"
         aria-hidden="true"
       />
 
-      <Container className="relative py-14 lg:py-20">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5 lg:gap-10">
-          <div className="lg:col-span-1">
-            <Link href="/" className="inline-block">
-              <Logo variant="footer" />
+      <Container className="relative py-16 lg:py-20">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-5 lg:gap-10">
+          <div className="sm:col-span-2 lg:col-span-1">
+            <Link href="/" className="inline-block bg-transparent">
+              <BrandLockup variant="footer" />
             </Link>
-            <p className="mt-5 text-sm leading-relaxed text-white/75">
-              Gleama (Pvt) Ltd is a diversified company focused on strategic
-              business ventures, sustainable growth, innovation and long-term
-              value creation.
+            <p className="mt-6 max-w-xs text-sm leading-relaxed text-white/70">
+              Gleama (Pvt) Ltd is a diversified company focused on sustainable
+              growth, innovation, strategic investments and long-term value
+              creation.
             </p>
             <div
               className="mt-6 flex items-center gap-3"
@@ -102,7 +129,7 @@ export default function Footer() {
                   <a
                     key={social.label}
                     href={social.href}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition-all duration-300 hover:border-accent hover:bg-accent/10 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 backdrop-blur-sm transition-all duration-300 hover:border-accent hover:bg-accent/10 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                     aria-label={social.label}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -114,79 +141,54 @@ export default function Footer() {
             </div>
           </div>
 
-          <nav aria-label="Company links">
-            <h3 className="text-sm font-semibold tracking-[0.15em] text-accent uppercase">
-              Company
-            </h3>
-            <div className="mt-3 mb-4 h-px w-10 bg-secondary/60" aria-hidden="true" />
-            <ul className="space-y-2.5">
+          <FooterColumn title="Company">
+            <ul className="space-y-3">
               {FOOTER_COMPANY_LINKS.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/75 transition-colors hover:text-white"
+                    className="text-sm text-white/70 transition-colors duration-300 hover:text-white"
                   >
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </nav>
+          </FooterColumn>
 
-          <nav aria-label="Investments links">
-            <h3 className="text-sm font-semibold tracking-[0.15em] text-accent uppercase">
-              Investments
-            </h3>
-            <div className="mt-3 mb-4 h-px w-10 bg-secondary/60" aria-hidden="true" />
-            <ul className="space-y-2.5">
-              {FOOTER_SECTOR_LINKS.map((link) => (
+          <FooterColumn title="Investments">
+            <ul className="space-y-3">
+              {FOOTER_INVESTMENT_LINKS.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/75 transition-colors hover:text-white"
+                    className="text-sm text-white/70 transition-colors duration-300 hover:text-white"
                   >
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </nav>
+          </FooterColumn>
 
-          <nav aria-label="Resources links">
-            <h3 className="text-sm font-semibold tracking-[0.15em] text-accent uppercase">
-              Resources
-            </h3>
-            <div className="mt-3 mb-4 h-px w-10 bg-secondary/60" aria-hidden="true" />
-            <ul className="space-y-2.5">
+          <FooterColumn title="Resources">
+            <ul className="space-y-3">
               {FOOTER_RESOURCE_LINKS.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/75 transition-colors hover:text-white"
+                    className="text-sm text-white/70 transition-colors duration-300 hover:text-white"
                   >
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </nav>
+          </FooterColumn>
 
-          <div aria-label="Contact information">
-            <h3 className="text-sm font-semibold tracking-[0.15em] text-accent uppercase">
-              Get In Touch
-            </h3>
-            <div className="mt-3 mb-4 h-px w-10 bg-secondary/60" aria-hidden="true" />
-            <address className="space-y-3 text-sm not-italic text-white/75">
-              <p className="flex items-start gap-2.5">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-secondary" aria-hidden="true" />
-                <a
-                  href={`tel:${COMPANY.phone.replace(/\s/g, "")}`}
-                  className="transition-colors hover:text-white"
-                >
-                  {COMPANY.phone}
-                </a>
-              </p>
-              <p className="flex items-start gap-2.5">
+          <FooterColumn title="Get In Touch">
+            <address className="space-y-4 text-sm not-italic text-white/70">
+              <p className="flex items-start gap-3">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-secondary" aria-hidden="true" />
                 <a
                   href={`mailto:${COMPANY.email}`}
@@ -195,38 +197,51 @@ export default function Footer() {
                   {COMPANY.email}
                 </a>
               </p>
-              <p className="flex items-start gap-2.5">
+              <p className="flex items-start gap-3">
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-secondary" aria-hidden="true" />
+                <a
+                  href={`tel:${COMPANY.phone.replace(/\s/g, "")}`}
+                  className="transition-colors hover:text-white"
+                >
+                  {COMPANY.phone}
+                </a>
+              </p>
+              <p className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-secondary" aria-hidden="true" />
                 <span>{COMPANY.address}</span>
               </p>
             </address>
-          </div>
+          </FooterColumn>
         </div>
       </Container>
 
-      <div className="relative border-t border-white/10 bg-black/20">
-        <Container className="flex flex-col items-center justify-between gap-4 py-6 sm:flex-row">
-          <p className="text-sm text-white/55">
+      <div className="relative border-t border-accent/25 bg-black/25">
+        <Container className="flex flex-col items-center justify-between gap-5 py-6 sm:flex-row">
+          <p className="text-center text-sm text-white/55 sm:text-left">
             &copy; 2026 {COMPANY.name}. All Rights Reserved.
           </p>
-          <nav aria-label="Legal links">
-            <ul className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-              {FOOTER_LEGAL_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-white/60 transition-colors hover:text-accent"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+
+          <nav aria-label="Legal links" className="flex flex-wrap items-center justify-center gap-1">
+            {FOOTER_LEGAL_LINKS.map((link, index) => (
+              <span key={link.href} className="flex items-center">
+                {index > 0 && (
+                  <span className="mx-3 text-white/25" aria-hidden="true">
+                    |
+                  </span>
+                )}
+                <Link
+                  href={link.href}
+                  className="text-sm text-white/60 transition-colors hover:text-accent"
+                >
+                  {link.label}
+                </Link>
+              </span>
+            ))}
           </nav>
+
+          <ScrollToTop variant="footer" />
         </Container>
       </div>
-
-      <ScrollToTop />
     </footer>
   );
 }

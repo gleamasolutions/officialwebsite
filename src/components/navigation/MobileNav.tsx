@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, X } from "lucide-react";
 import { startTransition, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import Logo from "@/components/shared/Logo";
+import BrandLockup from "@/components/shared/BrandLockup";
 import { NAVIGATION } from "@/constants/site";
 import { cn } from "@/lib/utils";
 
@@ -30,12 +30,7 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
   }, []);
 
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
+    document.body.style.overflow = open ? "hidden" : "auto";
     return () => {
       document.body.style.overflow = "auto";
     };
@@ -57,11 +52,11 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
     <AnimatePresence>
       {open && (
         <div
-          className="fixed inset-0 top-0 left-0 z-[9999] h-[100vh] w-full lg:hidden"
+          className="fixed inset-0 z-[9999] h-[100dvh] w-full lg:hidden"
           role="presentation"
         >
           <motion.div
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -71,38 +66,61 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
 
           <motion.nav
             id="mobile-navigation"
-            className="absolute top-0 right-0 flex h-full w-full max-w-sm flex-col bg-primary shadow-2xl"
+            className="absolute inset-0 flex flex-col bg-gradient-to-b from-[#000050] via-primary to-[#000060]"
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
-            transition={{ type: "tween", duration: 0.35, ease: "easeOut" }}
+            transition={{ type: "tween", duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             aria-label="Mobile navigation"
             role="dialog"
             aria-modal="true"
           >
-            <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
-              <Logo variant="header" />
+            <div
+              className="pointer-events-none absolute inset-0 pattern-grid-dark opacity-30"
+              aria-hidden="true"
+            />
+            <div
+              className="pointer-events-none absolute inset-x-0 top-0 h-px gold-accent-bar opacity-70"
+              aria-hidden="true"
+            />
+
+            <div className="relative flex items-center justify-between border-b border-white/10 px-5 py-5">
+              <Link href="/" onClick={handleClose} className="bg-transparent">
+                <BrandLockup variant="header" />
+              </Link>
               <button
                 type="button"
                 onClick={handleClose}
-                className="rounded-md p-2 text-white/80 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                className="rounded-full border border-white/15 p-2 text-white/80 transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                 aria-label="Close navigation menu"
               >
-                <X className="h-6 w-6" aria-hidden="true" />
+                <X className="h-5 w-5" aria-hidden="true" />
               </button>
             </div>
 
-            <ul className="flex-1 overflow-y-auto px-4 py-4">
-              {NAVIGATION.map((item) => {
-                const isActive = pathname === item.href;
+            <ul className="relative flex-1 overflow-y-auto px-5 py-6">
+              {NAVIGATION.map((item, index) => {
+                const isActive =
+                  pathname === item.href ||
+                  (item.children?.some((child) => pathname === child.href) ?? false);
 
                 if (item.children) {
                   const isExpanded = expandedItem === item.href;
+
                   return (
-                    <li key={item.href} className="border-b border-white/10">
+                    <motion.li
+                      key={item.href}
+                      initial={{ opacity: 0, x: 16 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.05 * index, duration: 0.3 }}
+                      className="border-b border-white/10"
+                    >
                       <button
                         type="button"
-                        className="flex w-full items-center justify-between py-4 text-left text-base font-medium text-white"
+                        className={cn(
+                          "flex w-full items-center justify-between py-4 text-left text-base font-medium transition-colors",
+                          isActive ? "text-secondary" : "text-white",
+                        )}
                         onClick={() =>
                           setExpandedItem(isExpanded ? null : item.href)
                         }
@@ -111,7 +129,7 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
                         {item.label}
                         <ChevronDown
                           className={cn(
-                            "h-5 w-5 transition-transform duration-300",
+                            "h-5 w-5 text-accent transition-transform duration-300",
                             isExpanded && "rotate-180",
                           )}
                           aria-hidden="true"
@@ -124,7 +142,7 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.25 }}
-                            className="overflow-hidden pb-3 pl-3"
+                            className="overflow-hidden border-l-2 border-accent/40 pb-4 pl-4"
                           >
                             {item.children.map((child) => (
                               <li key={child.href}>
@@ -134,8 +152,8 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
                                   className={cn(
                                     "block rounded-lg px-3 py-2.5 text-sm transition-colors",
                                     pathname === child.href
-                                      ? "bg-accent/20 font-medium text-accent"
-                                      : "text-white/75 hover:bg-white/5 hover:text-white",
+                                      ? "font-semibold text-secondary"
+                                      : "text-white/75 hover:text-white",
                                   )}
                                 >
                                   {child.label}
@@ -145,24 +163,36 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
                           </motion.ul>
                         )}
                       </AnimatePresence>
-                    </li>
+                    </motion.li>
                   );
                 }
 
                 return (
-                  <li key={item.href} className="border-b border-white/10">
+                  <motion.li
+                    key={item.href}
+                    initial={{ opacity: 0, x: 16 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.05 * index, duration: 0.3 }}
+                    className="border-b border-white/10"
+                  >
                     <Link
                       href={item.href}
                       onClick={handleClose}
                       className={cn(
-                        "block py-4 text-base font-medium transition-colors",
-                        isActive ? "text-accent" : "text-white hover:text-accent",
+                        "relative block py-4 text-base font-medium transition-colors",
+                        isActive ? "text-secondary" : "text-white hover:text-white/90",
                       )}
                       aria-current={isActive ? "page" : undefined}
                     >
                       {item.label}
+                      {isActive && (
+                        <span
+                          className="absolute bottom-3 left-0 h-0.5 w-8 rounded-full bg-accent"
+                          aria-hidden="true"
+                        />
+                      )}
                     </Link>
-                  </li>
+                  </motion.li>
                 );
               })}
             </ul>

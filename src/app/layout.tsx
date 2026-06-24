@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import CookieBanner from "@/components/cookies/CookieBanner";
@@ -17,6 +17,13 @@ const inter = Inter({
   adjustFontFallback: true,
 });
 
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+  weight: ["600", "700"],
+});
+
 export const metadata: Metadata = rootMetadata;
 
 export default function RootLayout({
@@ -25,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+    <html lang="en" className={`${inter.variable} ${playfair.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col bg-background text-foreground">
         <SeoSchema schema={createOrganizationSchema()} />
         <a

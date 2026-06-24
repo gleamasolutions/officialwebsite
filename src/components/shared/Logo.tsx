@@ -2,12 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { COMPANY } from "@/constants/site";
+import { BRAND, COMPANY } from "@/constants/site";
 import { cn } from "@/lib/utils";
-
-const LOGO_SRC = "/images/logo/gleama-logo.jpeg";
-const LOGO_WIDTH = 300;
-const LOGO_HEIGHT = 120;
 
 type LogoVariant = "header" | "footer" | "preloader";
 
@@ -18,15 +14,15 @@ interface LogoProps {
 }
 
 const variantClasses: Record<LogoVariant, string> = {
-  header: "h-[45px] w-auto object-contain lg:h-[60px]",
-  footer: "h-[80px] w-auto object-contain",
-  preloader: "h-[72px] w-auto object-contain sm:h-[80px]",
+  header: "h-12 w-auto object-contain lg:h-[60px]",
+  footer: "h-[72px] w-auto object-contain lg:h-20",
+  preloader: "h-[72px] w-auto object-contain sm:h-20",
 };
 
 const sizesByVariant: Record<LogoVariant, string> = {
-  header: "(max-width: 1024px) 200px, 300px",
-  footer: "300px",
-  preloader: "300px",
+  header: "(max-width: 1024px) 180px, 220px",
+  footer: "220px",
+  preloader: "220px",
 };
 
 const MotionImage = motion.create(Image);
@@ -37,13 +33,13 @@ export default function Logo({
   priority = false,
 }: LogoProps) {
   const sharedProps = {
-    src: LOGO_SRC,
+    src: BRAND.logo.src,
     alt: COMPANY.name,
-    width: LOGO_WIDTH,
-    height: LOGO_HEIGHT,
+    width: BRAND.logo.width,
+    height: BRAND.logo.height,
     sizes: sizesByVariant[variant],
     priority,
-    className: cn("h-auto w-auto object-contain", variantClasses[variant], className),
+    className: cn(variantClasses[variant], className),
   };
 
   const { alt, ...imageProps } = sharedProps;

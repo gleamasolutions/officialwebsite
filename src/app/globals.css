@@ -204,4 +204,13 @@
     box-shadow: var(--shadow-premium-hover);
     transform: translateY(-4px);
   }
+
+  .footer-premium-gradient {
+    background: linear-gradient(
+      180deg,
+      #000050 0%,
+      #000080 45%,
+      #000060 100%
+    );
+  }
 }

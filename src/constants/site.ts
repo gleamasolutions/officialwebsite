@@ -14,9 +14,9 @@ export const COMPANY = {
 
 export const BRAND = {
   logo: {
-    src: "/images/logo/gleama-logo.jpeg",
-    width: 300,
-    height: 120,
+    src: "/images/logo/gleama.png",
+    width: 220,
+    height: 70,
   },
 } as const;
 

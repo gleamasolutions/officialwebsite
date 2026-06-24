@@ -39,6 +39,8 @@ export interface BlogPreview {
   excerpt: string;
   href: string;
   date: string;
+  image: string;
+  imageAlt: string;
 }
 
 export const COMPANY_STATS: StatCard[] = [
@@ -126,21 +128,29 @@ export const BLOG_PREVIEWS: BlogPreview[] = [
     title: "The Future of Smart Investing in Sri Lanka",
     excerpt:
       "Exploring how technology and data-driven strategies are reshaping investment opportunities in emerging markets.",
-    href: "/blog",
+    href: "/blog/future-of-smart-investing",
     date: "March 2026",
+    image: "/images/blog/Smart-Invessting.png",
+    imageAlt: "The future of smart investing in Sri Lanka — Gleama insights",
   },
   {
     title: "Why Diversification Matters in a Changing Economy",
     excerpt:
       "Understanding the critical role of portfolio diversification in navigating economic uncertainty.",
-    href: "/blog",
+    href: "/blog/why-diversification-matters",
     date: "February 2026",
+    image: "/images/blog/Diversification-Matters.png",
+    imageAlt:
+      "Why diversification matters in a changing economy — Gleama insights",
   },
   {
     title: "Building Strong Consumer Brands for the Next Generation",
     excerpt:
       "How private equity investments in consumer brands create lasting value for stakeholders.",
-    href: "/blog",
+    href: "/blog/building-strong-consumer-brands",
     date: "January 2026",
+    image: "/images/blog/Consumer-Brands.png",
+    imageAlt:
+      "Building strong consumer brands for the next generation — Gleama insights",
   },
 ];

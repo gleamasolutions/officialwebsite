@@ -56,7 +56,7 @@ export default function LatestInsights() {
           role="list"
           aria-label="Latest blog articles"
         >
-          {BLOG_PREVIEWS.map((post, index) => (
+          {BLOG_PREVIEWS.map((post) => (
             <motion.article
               key={post.title}
               variants={cardVariants}
@@ -68,13 +68,12 @@ export default function LatestInsights() {
             >
               <div className="relative aspect-[16/10] overflow-hidden bg-primary/5">
                 <Image
-                  src={`https://placehold.co/800x500/000080/50C878?text=Insight+${index + 1}`}
-                  alt=""
+                  src={post.image}
+                  alt={post.imageAlt}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   loading="lazy"
-                  aria-hidden="true"
                 />
                 <div
                   className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"

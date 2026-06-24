@@ -112,12 +112,9 @@ export const rootMetadata: Metadata = {
     telephone: false,
   },
   icons: {
-    icon: [
-      { url: "/icon", type: "image/png", sizes: "32x32" },
-      { url: "/favicon.ico", sizes: "48x48" },
-    ],
-    apple: [{ url: "/apple-icon", type: "image/png", sizes: "180x180" }],
-    shortcut: ["/favicon.ico"],
+    icon: "/images/logo/favicon.png",
+    shortcut: "/images/logo/favicon.png",
+    apple: "/images/logo/favicon.png",
   },
   manifest: "/manifest.webmanifest",
   ...(gscVerification

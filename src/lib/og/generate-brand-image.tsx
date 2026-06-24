@@ -26,10 +26,10 @@ export async function getLogoDataUrl(): Promise<string> {
     "public",
     "images",
     "logo",
-    "gleama-logo.jpeg",
+    "gleama.png",
   );
   const buffer = await readFile(logoPath);
-  cachedLogoSrc = `data:image/jpeg;base64,${buffer.toString("base64")}`;
+  cachedLogoSrc = `data:image/png;base64,${buffer.toString("base64")}`;
   return cachedLogoSrc;
 }
 
@@ -147,39 +147,6 @@ export async function generateBrandOgImage(
     ),
     {
       ...OG_IMAGE_SIZE,
-    },
-  );
-}
-
-export async function generateBrandIcon(size: number): Promise<ImageResponse> {
-  const logoSrc = await getLogoDataUrl();
-
-  return new ImageResponse(
-    (
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "#000080",
-          padding: Math.round(size * 0.12),
-        }}
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={logoSrc}
-          alt={COMPANY.name}
-          width={Math.round(size * 0.76)}
-          height={Math.round(size * 0.76)}
-          style={{ objectFit: "contain", background: "#ffffff", borderRadius: 8 }}
-        />
-      </div>
-    ),
-    {
-      width: size,
-      height: size,
     },
   );
 }

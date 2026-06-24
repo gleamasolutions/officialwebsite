@@ -55,7 +55,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     readingTimeMinutes: 6,
     author: BLOG_AUTHOR,
     category: "Investment Strategy",
-    featuredImage: "/images/blog/smart-investing.jpg",
+    featuredImage: "/images/blog/Smart-Invessting.png",
     featuredImageAlt:
       "The future of smart investing in Sri Lanka — Gleama insights",
     seo: {
@@ -136,7 +136,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     readingTimeMinutes: 5,
     author: BLOG_AUTHOR,
     category: "Diversification",
-    featuredImage: "/images/blog/diversification.jpg",
+    featuredImage: "/images/blog/Diversification-Matters.png",
     featuredImageAlt:
       "Why diversification matters in a changing economy — Gleama insights",
     seo: {
@@ -217,7 +217,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     readingTimeMinutes: 7,
     author: BLOG_AUTHOR,
     category: "Brand Development",
-    featuredImage: "/images/blog/consumer-brands.jpg",
+    featuredImage: "/images/blog/Consumer-Brands.png",
     featuredImageAlt:
       "Building strong consumer brands for the next generation — Gleama insights",
     seo: {
@@ -319,7 +319,7 @@ export function getRelatedArticles(
 
 export function getFeaturedImageUrl(slug: string): string {
   const article = getArticleBySlug(slug);
-  return article?.featuredImage ?? "/images/blog/smart-investing.jpg";
+  return article?.featuredImage ?? "/images/blog/Smart-Invessting.png";
 }
 
 export function getArticlePath(slug: string): string {
