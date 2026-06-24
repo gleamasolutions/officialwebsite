@@ -20,8 +20,10 @@ export default function BrandLockup({
   return (
     <div
       className={cn(
-        "flex items-center gap-3",
-        isFooter && "flex-col items-start gap-4 sm:flex-row sm:items-center",
+        "flex min-w-0 items-center",
+        isFooter
+          ? "flex-col items-start gap-4"
+          : "gap-3",
         className,
       )}
     >
@@ -31,19 +33,21 @@ export default function BrandLockup({
         width={BRAND.logo.width}
         height={BRAND.logo.height}
         priority={priority}
-        sizes={isFooter ? "220px" : "(max-width: 1024px) 160px, 200px"}
+        sizes={isFooter ? "180px" : "(max-width: 1024px) 160px, 200px"}
         className={cn(
-          "h-auto w-auto shrink-0 object-contain mix-blend-multiply",
-          isFooter ? "h-14 w-auto lg:h-16" : "h-10 w-auto lg:h-12",
+          "h-auto w-auto shrink-0 object-contain",
+          isFooter
+            ? "h-[3.25rem] w-auto sm:h-[4.375rem] lg:h-[5.625rem]"
+            : "h-10 w-auto lg:h-12",
         )}
         aria-hidden="true"
       />
 
-      <div className={cn("flex flex-col", isFooter && "gap-1")}>
+      <div className={cn("flex min-w-0 flex-col", isFooter ? "gap-1.5" : "gap-0.5")}>
         <span
           className={cn(
             "font-[family-name:var(--font-playfair)] font-semibold leading-none tracking-[0.12em] text-white",
-            isFooter ? "text-2xl lg:text-3xl" : "text-lg lg:text-xl",
+            isFooter ? "text-xl sm:text-2xl lg:text-3xl" : "text-lg lg:text-xl",
           )}
         >
           {COMPANY.shortName.toUpperCase()}
@@ -51,7 +55,7 @@ export default function BrandLockup({
         <span
           className={cn(
             "font-medium tracking-[0.22em] text-white/60 uppercase",
-            isFooter ? "text-xs" : "text-[10px] lg:text-[11px]",
+            isFooter ? "text-[11px] sm:text-xs" : "text-[10px] lg:text-[11px]",
           )}
         >
           {COMPANY.tagline}

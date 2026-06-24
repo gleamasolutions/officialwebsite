@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import Container from "@/components/layout/Container";
 import DesktopNav from "@/components/navigation/DesktopNav";
+import ScrollProgress from "@/components/layout/ScrollProgress";
 import MobileNav from "@/components/navigation/MobileNav";
 import BrandLockup from "@/components/shared/BrandLockup";
 import { COMPANY } from "@/constants/site";
@@ -23,6 +24,7 @@ export default function Header() {
 
   return (
     <>
+      <ScrollProgress />
       <motion.header
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-out",
@@ -37,7 +39,7 @@ export default function Header() {
           <div className="flex h-full items-center justify-between gap-4 lg:gap-8">
             <Link
               href="/"
-              className="inline-flex shrink-0 bg-transparent transition-opacity hover:opacity-90"
+              className="inline-flex shrink-0 bg-transparent"
               aria-label={`${COMPANY.name} - Home`}
             >
               <BrandLockup variant="header" priority />

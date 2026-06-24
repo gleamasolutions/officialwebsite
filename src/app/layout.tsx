@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
+import ScrollToTop from "@/components/layout/ScrollToTop";
 import CookieBanner from "@/components/cookies/CookieBanner";
 import Analytics from "@/components/seo/Analytics";
 import SeoSchema from "@/components/seo/SeoSchema";
@@ -46,6 +47,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <ScrollToTop />
         <CookieBanner />
         <Analytics />
       </body>

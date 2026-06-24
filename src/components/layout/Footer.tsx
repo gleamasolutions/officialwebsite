@@ -2,7 +2,6 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { Mail, MapPin, Phone } from "lucide-react";
 import Container from "@/components/layout/Container";
-import ScrollToTop from "@/components/layout/ScrollToTop";
 import BrandLockup from "@/components/shared/BrandLockup";
 import { COMPANY } from "@/constants/site";
 
@@ -111,10 +110,10 @@ export default function Footer() {
       <Container className="relative py-16 lg:py-20">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-5 lg:gap-10">
           <div className="sm:col-span-2 lg:col-span-1">
-            <Link href="/" className="inline-block bg-transparent">
+            <Link href="/" className="mb-6 inline-block max-w-full bg-transparent">
               <BrandLockup variant="footer" />
             </Link>
-            <p className="mt-6 max-w-xs text-sm leading-relaxed text-white/70">
+            <p className="max-w-sm text-sm leading-relaxed text-white/70">
               Gleama (Pvt) Ltd is a diversified company focused on sustainable
               growth, innovation, strategic investments and long-term value
               creation.
@@ -238,8 +237,6 @@ export default function Footer() {
               </span>
             ))}
           </nav>
-
-          <ScrollToTop variant="footer" />
         </Container>
       </div>
     </footer>
