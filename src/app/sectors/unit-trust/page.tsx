@@ -23,7 +23,7 @@ export default function UnitTrustPage() {
           UNIT_TRUST_CONTENT.seo.description,
           [
             { name: "Home", path: "/" },
-            { name: "Sectors", path: "/sectors" },
+            { name: "Investments", path: "/sectors" },
             { name: UNIT_TRUST_CONTENT.heroTitle, path: "/sectors/unit-trust" },
           ],
         )}

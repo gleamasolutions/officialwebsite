@@ -173,7 +173,7 @@ export const TERMS_OF_SERVICE: LegalDocumentContent = {
       id: "about",
       title: "1. About Gleama",
       paragraphs: [
-        "Gleama (Pvt) Ltd is a diversified investment company operating across capital markets, unit trusts, private equity, and gold investments. Information on this website is provided for general informational purposes unless otherwise stated.",
+        "Gleama (Pvt) Ltd is a diversified company operating across capital markets, unit trusts, private equity, and gold investments. Information on this website is provided for general informational purposes unless otherwise stated.",
       ],
     },
     {

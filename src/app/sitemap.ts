@@ -10,6 +10,7 @@ const staticRoutes = [
   { path: "/sectors/unit-trust", priority: 0.8, changeFrequency: "monthly" as const },
   { path: "/sectors/private-equity", priority: 0.8, changeFrequency: "monthly" as const },
   { path: "/sectors/gold", priority: 0.8, changeFrequency: "monthly" as const },
+  { path: "/sustainability", priority: 0.85, changeFrequency: "monthly" as const },
   { path: "/blog", priority: 0.85, changeFrequency: "weekly" as const },
   { path: "/contact", priority: 0.85, changeFrequency: "monthly" as const },
   { path: "/privacy-policy", priority: 0.5, changeFrequency: "yearly" as const },

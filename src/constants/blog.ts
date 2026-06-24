@@ -28,21 +28,20 @@ export const BLOG_AUTHOR = "Gleama Editorial Team";
 export const BLOG_LISTING_SEO = {
   title: "Insights & Articles",
   description:
-    "Market insights, investment strategies and business perspectives from Gleama (Pvt) Ltd — your source for smart investing in Sri Lanka.",
+    "Market insights, business perspectives and strategic growth ideas from Gleama (Pvt) Ltd — your source for corporate and investment insights in Sri Lanka.",
   keywords: [
-    "Gleama blog",
-    "investment insights Sri Lanka",
-    "market perspectives",
-    "investment strategies",
-    "business articles",
-    "Colombo Stock Exchange insights",
+    "Gleama insights",
+    "business ventures Sri Lanka",
+    "corporate growth",
+    "diversified company",
+    "sustainable growth",
   ],
 } as const;
 
 export const BLOG_HERO = {
   title: "Insights & Articles",
   subtitle:
-    "Market insights, investment strategies and business perspectives from Gleama.",
+    "Market insights, business perspectives and strategic growth ideas from Gleama.",
 } as const;
 
 export const BLOG_ARTICLES: BlogArticle[] = [
@@ -122,7 +121,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         title: "Conclusion",
         paragraphs: [
           "The future of smart investing in Sri Lanka is bright for those who embrace diversification, leverage technology responsibly and maintain a long-term commitment to disciplined portfolio management.",
-          "Whether through CSE equities, unit trust funds, private equity or gold investments, Gleama (Pvt) Ltd stands ready to guide investors toward sustainable wealth creation. Contact our team to learn how our diversified investment solutions can support your financial goals.",
+          "Whether through CSE equities, unit trust funds, private equity or gold investments, Gleama (Pvt) Ltd stands ready to guide stakeholders toward sustainable wealth creation. Contact our team to learn how our diversified business solutions can support your long-term goals.",
         ],
       },
     ],
@@ -159,7 +158,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         title: "Introduction",
         paragraphs: [
           "Economic conditions are never static. Interest rates shift, global events create volatility and individual sectors rise and fall in response to changing demand. In this environment, diversification is not merely a strategy — it is a necessity for investors and businesses alike.",
-          "At Gleama (Pvt) Ltd, diversification is embedded in our identity as a diversified investment company. This article examines why spreading risk across asset classes, sectors and investment themes is essential for navigating today's changing economy.",
+          "At Gleama (Pvt) Ltd, diversification is embedded in our identity as a diversified company. This article examines why spreading risk across asset classes, sectors and investment themes is essential for navigating today's changing economy.",
         ],
       },
       {

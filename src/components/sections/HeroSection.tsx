@@ -5,6 +5,7 @@ import Container from "@/components/layout/Container";
 import Button from "@/components/shared/Button";
 import SectionBackground from "@/components/shared/SectionBackground";
 import SlideUp from "@/components/animations/SlideUp";
+import { COMPANY } from "@/constants/site";
 
 const ALLOCATION = [
   { label: "CSE", value: 30, color: "#50C878", angle: 0 },
@@ -212,7 +213,7 @@ export default function HeroSection() {
               <div className="mb-6 flex items-center gap-3">
                 <span className="h-px w-10 gold-accent-bar" aria-hidden="true" />
                 <p className="text-sm font-medium tracking-[0.2em] text-accent uppercase">
-                  Diversified Investment Company
+                  {COMPANY.tagline}
                 </p>
               </div>
             </SlideUp>
@@ -221,14 +222,14 @@ export default function HeroSection() {
                 id="hero-heading"
                 className="text-3xl font-bold leading-[1.12] tracking-tight sm:text-4xl lg:text-5xl xl:text-display-md"
               >
-                Building Sustainable Wealth Through{" "}
-                <span className="text-accent">Strategic Investments</span>
+                Creating Long-Term Value Through{" "}
+                <span className="text-accent">Diversified Business Excellence</span>
               </h1>
             </SlideUp>
             <SlideUp delay={0.35}>
               <p className="mt-6 max-w-xl text-base leading-relaxed text-white/75 sm:text-body-lg">
-                Creating long-term value through diversified investments, market
-                expertise, and sustainable growth.
+                Building sustainable growth through strategic business ventures,
+                innovation and long-term value creation.
               </p>
             </SlideUp>
             <SlideUp delay={0.5}>

@@ -19,7 +19,7 @@ export default function CompanyOverview() {
           <div>
             <SectionTitle
               title="About Gleama"
-              subtitle={`${COMPANY.name} is a diversified investment company focused on strategic investments, sustainable growth, and long-term value creation across Sri Lanka's most promising sectors.`}
+              subtitle={`${COMPANY.name} is a diversified company focused on strategic business ventures, sustainable growth, innovation and long-term value creation across Sri Lanka's most promising sectors.`}
             />
             <SlideUp delay={0.2}>
               <p className="mt-6 text-body-md leading-relaxed text-neutral-600">

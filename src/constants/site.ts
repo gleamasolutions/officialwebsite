@@ -4,9 +4,9 @@ import type { SeoDefaults } from "@/types/seo.types";
 export const COMPANY = {
   name: "Gleama (Pvt) Ltd",
   shortName: "Gleama",
-  tagline: "Diversified Investment Company",
+  tagline: "Diversified Company",
   description:
-    "Gleama (Pvt) Ltd is a diversified investment company delivering strategic value across capital markets, unit trusts, private equity, and gold investments.",
+    "Gleama (Pvt) Ltd is a diversified company focused on strategic business ventures, sustainable growth, innovation and long-term value creation.",
   email: "info@gleama.lk",
   phone: "+94 11 000 0000",
   address: "Colombo, Sri Lanka",
@@ -27,7 +27,7 @@ export const NAVIGATION: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   {
-    label: "Sectors",
+    label: "Investments",
     href: "/sectors",
     children: [
       { label: "Colombo Stock Exchange", href: "/sectors/cse" },
@@ -36,6 +36,7 @@ export const NAVIGATION: NavItem[] = [
       { label: "Gold Investments", href: "/sectors/gold" },
     ],
   },
+  { label: "Sustainability", href: "/sustainability" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
@@ -53,7 +54,7 @@ export const FOOTER_SECTIONS: FooterSection[] = [
     title: "Quick Links",
     links: [
       { label: "Home", href: "/" },
-      { label: "Sectors", href: "/sectors" },
+      { label: "Investments", href: "/sectors" },
       { label: "Contact", href: "/contact" },
     ],
   },
@@ -88,13 +89,14 @@ export const SEO_DEFAULTS: SeoDefaults = {
   description: COMPANY.description,
   keywords: [
     "Gleama",
-    "investment company",
-    "diversified investments",
+    "diversified company",
+    "business ventures",
+    "corporate growth",
     "Sri Lanka",
-    "capital markets",
-    "unit trust",
-    "private equity",
-    "gold investment",
+    "strategic investments",
+    "business development",
+    "innovation",
+    "sustainable growth",
   ],
   ogImage: "/og-image",
   twitterHandle: "@gleama",

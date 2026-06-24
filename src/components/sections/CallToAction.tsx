@@ -36,8 +36,8 @@ export default function CallToAction() {
         </SlideUp>
         <SlideUp delay={0.15}>
           <p className="mx-auto mt-5 max-w-xl text-base text-white/70 sm:text-body-lg">
-            Partner with Gleama to access institutional-grade investment
-            solutions tailored for long-term prosperity.
+            Partner with Gleama to explore strategic business ventures and
+            solutions designed for long-term prosperity.
           </p>
         </SlideUp>
         <SlideUp delay={0.3}>

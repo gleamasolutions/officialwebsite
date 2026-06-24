@@ -154,7 +154,7 @@ export function createContactPageSchema(): JsonLdContactPage {
     "@type": "ContactPage",
     name: "Contact Gleama",
     description:
-      "Contact Gleama (Pvt) Ltd for investment opportunities, partnerships and business inquiries.",
+      "Contact Gleama (Pvt) Ltd for business inquiries, partnership opportunities and general corporate inquiries.",
     url,
     mainEntity: {
       "@type": "Organization",

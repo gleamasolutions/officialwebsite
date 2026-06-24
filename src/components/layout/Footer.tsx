@@ -88,8 +88,9 @@ export default function Footer() {
               <Logo variant="footer" />
             </Link>
             <p className="mt-5 text-sm leading-relaxed text-white/75">
-              Creating sustainable value through strategic investments,
-              innovation and long-term growth.
+              Gleama (Pvt) Ltd is a diversified company focused on strategic
+              business ventures, sustainable growth, innovation and long-term
+              value creation.
             </p>
             <div
               className="mt-6 flex items-center gap-3"
@@ -132,9 +133,9 @@ export default function Footer() {
             </ul>
           </nav>
 
-          <nav aria-label="Investment sector links">
+          <nav aria-label="Investments links">
             <h3 className="text-sm font-semibold tracking-[0.15em] text-accent uppercase">
-              Investment Sectors
+              Investments
             </h3>
             <div className="mt-3 mb-4 h-px w-10 bg-secondary/60" aria-hidden="true" />
             <ul className="space-y-2.5">

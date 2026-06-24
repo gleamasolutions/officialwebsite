@@ -23,7 +23,7 @@ export default function PrivateEquityPage() {
           PRIVATE_EQUITY_CONTENT.seo.description,
           [
             { name: "Home", path: "/" },
-            { name: "Sectors", path: "/sectors" },
+            { name: "Investments", path: "/sectors" },
             {
               name: PRIVATE_EQUITY_CONTENT.heroTitle,
               path: "/sectors/private-equity",

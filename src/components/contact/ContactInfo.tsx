@@ -18,8 +18,8 @@ export default function ContactInfo({ className }: ContactInfoProps) {
         Contact Information
       </h2>
       <p className="mt-2 text-body-sm text-neutral-600">
-        Reach our team for investment inquiries, partnerships, and corporate
-        information.
+        Reach our team for business inquiries, partnership opportunities, and
+        general corporate information.
       </p>
 
       <ul className="mt-8 space-y-6">

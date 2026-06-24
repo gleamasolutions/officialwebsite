@@ -41,7 +41,7 @@ export default function WhyChooseGleama() {
         <FadeIn>
           <SectionTitle
             title="Why Choose Gleama"
-            subtitle="Institutional-grade investment capabilities combined with a commitment to sustainable, long-term value creation."
+            subtitle="Business excellence, innovation and strategic growth combined with a commitment to sustainable, long-term value creation."
             align="center"
             className="mb-14"
           />

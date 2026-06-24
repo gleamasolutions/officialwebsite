@@ -166,16 +166,6 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
                 );
               })}
             </ul>
-
-            <div className="border-t border-white/10 p-5">
-              <Link
-                href="/contact"
-                onClick={handleClose}
-                className="flex w-full items-center justify-center rounded-md border-2 border-accent px-5 py-3 text-sm font-semibold text-accent transition-all duration-300 hover:bg-accent hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-              >
-                Invest With Us
-              </Link>
-            </div>
           </motion.nav>
         </div>
       )}

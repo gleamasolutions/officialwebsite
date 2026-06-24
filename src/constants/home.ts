@@ -42,10 +42,10 @@ export interface BlogPreview {
 }
 
 export const COMPANY_STATS: StatCard[] = [
-  { value: "4", label: "Investment Sectors" },
+  { value: "4", label: "Business Sectors" },
   { value: "Strategic", label: "Growth Focus" },
   { value: "Long-Term", label: "Value Creation" },
-  { value: "Excellence", label: "Investment Standards" },
+  { value: "Excellence", label: "Corporate Standards" },
 ];
 
 export const INVESTMENT_SECTORS: SectorCard[] = [
@@ -81,27 +81,27 @@ export const INVESTMENT_SECTORS: SectorCard[] = [
 
 export const WHY_CHOOSE_FEATURES: FeatureCard[] = [
   {
-    title: "Strategic Investments",
+    title: "Innovation",
     description:
-      "Disciplined allocation across diversified asset classes to capture sustainable returns.",
+      "Forward-thinking strategies and adaptive approaches that unlock opportunity across evolving markets.",
     icon: Target,
   },
   {
-    title: "Risk Management",
+    title: "Business Excellence",
     description:
-      "Robust frameworks that protect capital while optimizing risk-adjusted performance.",
+      "Institutional-grade standards, disciplined execution and continuous improvement across our ventures.",
     icon: Shield,
   },
   {
-    title: "Market Expertise",
+    title: "Strategic Growth",
     description:
-      "Deep institutional knowledge of Sri Lankan and global capital markets.",
+      "Purposeful expansion across sectors and partnerships designed to build enduring enterprise value.",
     icon: LineChart,
   },
   {
     title: "Sustainable Growth",
     description:
-      "Long-term value creation aligned with responsible investment principles.",
+      "Long-term value creation aligned with responsible business principles and stakeholder prosperity.",
     icon: Leaf,
   },
 ];

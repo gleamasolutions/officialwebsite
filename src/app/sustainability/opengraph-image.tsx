@@ -1,14 +1,14 @@
 import { generateBrandOgImage, OG_IMAGE_SIZE } from "@/lib/og/generate-brand-image";
+import { SUSTAINABILITY_SEO } from "@/constants/sustainability";
 
-export const alt = "Contact Gleama (Pvt) Ltd";
+export const alt = "Gleama Sustainability";
 export const size = OG_IMAGE_SIZE;
 export const contentType = "image/png";
 
 export default async function Image() {
   return generateBrandOgImage({
-    title: "Contact Gleama",
-    subtitle:
-      "Discuss business inquiries, partnership opportunities and general corporate inquiries.",
-    eyebrow: "Get In Touch",
+    title: SUSTAINABILITY_SEO.title,
+    subtitle: SUSTAINABILITY_SEO.description,
+    eyebrow: "Sustainable Growth",
   });
 }

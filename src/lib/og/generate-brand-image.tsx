@@ -39,7 +39,7 @@ export async function generateBrandOgImage(
   const logoSrc = await getLogoDataUrl();
   const subtitle =
     options.subtitle ??
-    "Diversified Investment Company · Strategic Value Creation";
+    "Diversified Company · Strategic Value Creation";
 
   return new ImageResponse(
     (

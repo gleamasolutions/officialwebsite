@@ -23,7 +23,7 @@ export default function SectorsPage() {
           SECTORS_SEO.description,
           [
             { name: "Home", path: "/" },
-            { name: "Sectors", path: "/sectors" },
+            { name: "Investments", path: "/sectors" },
           ],
         )}
       />

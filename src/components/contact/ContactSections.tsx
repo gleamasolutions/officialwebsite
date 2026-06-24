@@ -20,8 +20,9 @@ export default function ContactSections() {
               Get In Touch
             </h2>
             <p className="mt-3 text-body-lg text-neutral-600">
-              We welcome inquiries from investors, partners, and institutions
-              seeking long-term value creation.
+              We welcome business inquiries, partnership opportunities and
+              general corporate inquiries from customers, partners and
+              institutions seeking long-term value creation.
             </p>
           </div>
 

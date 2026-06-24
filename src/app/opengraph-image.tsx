@@ -1,7 +1,7 @@
 import { generateBrandOgImage, OG_IMAGE_SIZE } from "@/lib/og/generate-brand-image";
 import { COMPANY } from "@/constants/site";
 
-export const alt = `${COMPANY.name} — Diversified Investment Company`;
+export const alt = `${COMPANY.name} — Diversified Company`;
 export const size = OG_IMAGE_SIZE;
 export const contentType = "image/png";
 

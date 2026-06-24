@@ -32,13 +32,9 @@ const cardVariants = {
 export default function LatestInsights() {
   return (
     <section
-      className="relative bg-white py-20 lg:py-28"
+      className="relative bg-white pt-12 pb-20 lg:pt-16 lg:pb-28"
       aria-label="Latest insights"
     >
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-16 section-fade-top-light"
-        aria-hidden="true"
-      />
       <SectionBackground tone="light" />
 
       <Container className="relative">

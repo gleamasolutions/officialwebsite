@@ -23,7 +23,7 @@ export default function GoldPage() {
           GOLD_CONTENT.seo.description,
           [
             { name: "Home", path: "/" },
-            { name: "Sectors", path: "/sectors" },
+            { name: "Investments", path: "/sectors" },
             { name: GOLD_CONTENT.heroTitle, path: "/sectors/gold" },
           ],
         )}

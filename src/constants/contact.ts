@@ -27,9 +27,9 @@ export const CONTACT_DETAILS = [
 ] as const;
 
 export const CONTACT_SUBJECTS = [
-  "Investment Inquiry",
+  "Business Inquiry",
   "Partnership Opportunity",
-  "Unit Trust Information",
+  "General Corporate Inquiry",
+  "Investment Inquiry",
   "Private Equity",
-  "General Inquiry",
 ] as const;

@@ -49,24 +49,11 @@ export default function Header() {
               <DesktopNav isTransparent={isTransparent} />
             </div>
 
-            <div className="flex items-center justify-end gap-3">
-              <Link
-                href="/contact"
-                className={cn(
-                  "hidden rounded-md border-2 px-5 py-2 text-sm font-semibold tracking-wide transition-all duration-300 lg:inline-flex",
-                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2",
-                  isTransparent
-                    ? "border-accent text-white hover:bg-accent hover:text-primary"
-                    : "border-accent text-accent hover:bg-accent hover:text-primary",
-                )}
-              >
-                Invest With Us
-              </Link>
-
+            <div className="flex items-center justify-end lg:hidden">
               <button
                 type="button"
                 className={cn(
-                  "inline-flex items-center justify-center rounded-md p-2 lg:hidden",
+                  "inline-flex items-center justify-center rounded-md p-2",
                   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",
                   isTransparent ? "text-white" : "text-white",
                 )}

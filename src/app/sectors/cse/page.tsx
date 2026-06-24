@@ -23,7 +23,7 @@ export default function CsePage() {
           CSE_CONTENT.seo.description,
           [
             { name: "Home", path: "/" },
-            { name: "Sectors", path: "/sectors" },
+            { name: "Investments", path: "/sectors" },
             { name: CSE_CONTENT.heroTitle, path: "/sectors/cse" },
           ],
         )}

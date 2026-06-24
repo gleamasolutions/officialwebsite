@@ -8,7 +8,7 @@ import { createContactPageSchemas } from "@/lib/json-ld";
 export const metadata = createPageMetadata({
   title: "Contact",
   description:
-    "Contact Gleama (Pvt) Ltd to discuss investment opportunities, partnerships and business inquiries.",
+    "Contact Gleama (Pvt) Ltd for business inquiries, partnership opportunities and general corporate inquiries.",
   path: "/contact",
 });
 
@@ -18,7 +18,7 @@ export default function ContactPage() {
       <SeoSchema schema={createContactPageSchemas()} />
       <PageHero
         title="Contact Gleama"
-        description="Let's discuss investment opportunities, partnerships and business inquiries."
+        description="Let's discuss business inquiries, partnership opportunities and general corporate inquiries."
       />
       <ContactSections />
     </PageLayout>
