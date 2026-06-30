@@ -35,10 +35,10 @@ export default function BrandLockup({
         priority={priority}
         sizes={isFooter ? "180px" : "(max-width: 1024px) 160px, 200px"}
         className={cn(
-          "h-auto w-auto shrink-0 object-contain",
+          "w-auto shrink-0 border-none bg-transparent object-contain shadow-none [filter:none]",
           isFooter
-            ? "h-[3.25rem] w-auto sm:h-[4.375rem] lg:h-[5.625rem]"
-            : "h-10 w-auto lg:h-12",
+            ? "h-[3.25rem] sm:h-[4.375rem] lg:h-[5.625rem]"
+            : "h-10 lg:h-12",
         )}
         aria-hidden="true"
       />

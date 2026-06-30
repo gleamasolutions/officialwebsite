@@ -13,10 +13,12 @@ interface LogoProps {
   priority?: boolean;
 }
 
+const LOGO_RESET = "w-auto border-none bg-transparent object-contain shadow-none";
+
 const variantClasses: Record<LogoVariant, string> = {
-  header: "h-12 w-auto object-contain lg:h-[60px]",
-  footer: "h-[72px] w-auto object-contain lg:h-20",
-  preloader: "h-[72px] w-auto object-contain sm:h-20",
+  header: `${LOGO_RESET} h-12 lg:h-14`,
+  footer: `${LOGO_RESET} h-[72px] lg:h-20`,
+  preloader: `${LOGO_RESET} h-[72px] sm:h-20`,
 };
 
 const sizesByVariant: Record<LogoVariant, string> = {
