@@ -7,7 +7,8 @@ import { ABOUT_COMPANY } from "@/constants/about";
 export default function AboutOurCompany() {
   return (
     <section
-      className="relative bg-white py-20 lg:py-28"
+      id="overview"
+      className="relative scroll-mt-28 bg-white py-20 lg:py-28"
       aria-labelledby="our-company-heading"
     >
       <SectionBackground tone="light" />

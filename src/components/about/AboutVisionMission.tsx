@@ -8,7 +8,8 @@ import { cn } from "@/lib/utils";
 export default function AboutVisionMission() {
   return (
     <section
-      className="relative bg-[#F8FAFC] py-20 lg:py-28"
+      id="our-vision"
+      className="relative scroll-mt-28 bg-[#F8FAFC] py-20 lg:py-28"
       aria-labelledby="vision-mission-heading"
     >
       <div

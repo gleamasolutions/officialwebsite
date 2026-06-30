@@ -7,7 +7,8 @@ import { CORPORATE_INFO } from "@/constants/about";
 export default function AboutCorporateInfo() {
   return (
     <section
-      className="relative bg-[#F8FAFC] py-20 lg:py-28"
+      id="corporate-information"
+      className="relative scroll-mt-28 bg-[#F8FAFC] py-20 lg:py-28"
       aria-labelledby="corporate-info-heading"
     >
       <div

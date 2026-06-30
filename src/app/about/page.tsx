@@ -1,4 +1,5 @@
 import PageLayout from "@/components/layout/PageLayout";
+import AboutHashScroll from "@/components/about/AboutHashScroll";
 import AboutBoardOfDirectors from "@/components/about/AboutBoardOfDirectors";
 import AboutCoreValues from "@/components/about/AboutCoreValues";
 import AboutCorporateInfo from "@/components/about/AboutCorporateInfo";
@@ -27,10 +28,11 @@ export default function AboutPage() {
           ABOUT_SEO.description,
           [
             { name: "Home", path: "/" },
-            { name: "About", path: "/about" },
+            { name: "About Us", path: "/about" },
           ],
         )}
       />
+      <AboutHashScroll />
       <PageHero
         title={ABOUT_HERO.title}
         description={ABOUT_HERO.subtitle}

@@ -1,14 +1,15 @@
 export interface NavLink {
   label: string;
-  href: string;
+  href?: string;
   external?: boolean;
-}
-
-export interface NavItem extends NavLink {
+  disabled?: boolean;
+  badge?: string;
   children?: NavLink[];
 }
 
+export interface NavItem extends NavLink {}
+
 export interface FooterSection {
   title: string;
-  links: NavLink[];
+  links: Array<NavLink & { href: string }>;
 }

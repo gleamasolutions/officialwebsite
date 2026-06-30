@@ -25,15 +25,35 @@ export const SITE_URL =
 
 export const NAVIGATION: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
   {
-    label: "Investments",
+    label: "About Us",
+    href: "/about",
+    children: [
+      { label: "Overview", href: "/about#overview" },
+      { label: "Our Vision", href: "/about#our-vision" },
+      { label: "Board of Directors", href: "/about#board-of-directors" },
+      { label: "Corporate Information", href: "/about#corporate-information" },
+    ],
+  },
+  {
+    label: "Sectors",
     href: "/sectors",
     children: [
-      { label: "Colombo Stock Exchange", href: "/sectors/cse" },
-      { label: "Unit Trust", href: "/sectors/unit-trust" },
-      { label: "Private Equity", href: "/sectors/private-equity" },
-      { label: "Gold Investments", href: "/sectors/gold" },
+      {
+        label: "Investments",
+        href: "/sectors",
+        children: [
+          { label: "Colombo Stock Exchange", href: "/sectors/cse" },
+          { label: "Unit Trust", href: "/sectors/unit-trust" },
+          { label: "Private Equity", href: "/sectors/private-equity" },
+          { label: "Gold Investments", href: "/sectors/gold" },
+        ],
+      },
+      // Future sectors — set a `href` and remove `disabled` once each is live.
+      { label: "Consumer Brands", disabled: true, badge: "Coming Soon" },
+      { label: "Apparel", disabled: true, badge: "Coming Soon" },
+      { label: "Hospitality", disabled: true, badge: "Coming Soon" },
+      { label: "Management Services", disabled: true, badge: "Coming Soon" },
     ],
   },
   { label: "Sustainability", href: "/sustainability" },
