@@ -21,8 +21,9 @@ export function createOrganizationSchema(): JsonLdOrganization {
     telephone: COMPANY.phone,
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Colombo",
-      addressCountry: "LK",
+      streetAddress: "No 79/11, Dayagunasekara Mawatha, Welagedara",
+      addressLocality: "Badulla",
+      addressCountry: "Sri Lanka",
     },
   };
 }

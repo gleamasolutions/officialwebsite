@@ -32,8 +32,10 @@ export interface JsonLdOrganization {
   telephone?: string;
   address?: {
     "@type": "PostalAddress";
-    addressLocality: string;
-    addressCountry: string;
+    streetAddress?: string;
+    addressLocality?: string;
+    addressRegion?: string;
+    addressCountry?: string;
   };
 }
 

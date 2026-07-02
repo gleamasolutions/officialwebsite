@@ -8,8 +8,18 @@ export const COMPANY = {
   description:
     "Gleama (Pvt) Ltd is a diversified company focused on strategic business ventures, sustainable growth, innovation and long-term value creation.",
   email: "info@gleama.lk",
-  phone: "+94 11 000 0000",
-  address: "Colombo, Sri Lanka",
+  phone: "+94 74 056 9900",
+  phoneTel: "tel:+94740569900",
+  whatsapp: "+94 74 056 9900",
+  whatsappUrl: "https://wa.me/94740569900",
+  addressLines: [
+    "No 79/11",
+    "Dayagunasekara Mawatha",
+    "Welagedara",
+    "Badulla",
+    "Sri Lanka",
+  ],
+  address: "No 79/11, Dayagunasekara Mawatha, Welagedara, Badulla, Sri Lanka",
 } as const;
 
 export const BRAND = {
@@ -49,11 +59,6 @@ export const NAVIGATION: NavItem[] = [
           { label: "Gold Investments", href: "/sectors/gold" },
         ],
       },
-      // Future sectors — set a `href` and remove `disabled` once each is live.
-      { label: "Consumer Brands", disabled: true, badge: "Coming Soon" },
-      { label: "Apparel", disabled: true, badge: "Coming Soon" },
-      { label: "Hospitality", disabled: true, badge: "Coming Soon" },
-      { label: "Management Services", disabled: true, badge: "Coming Soon" },
     ],
   },
   { label: "Sustainability", href: "/sustainability" },
@@ -98,9 +103,21 @@ export const FOOTER_SECTIONS: FooterSection[] = [
 ];
 
 export const SOCIAL_LINKS = [
-  { label: "LinkedIn", href: "#", icon: "linkedin" },
-  { label: "Facebook", href: "#", icon: "facebook" },
-  { label: "Twitter", href: "#", icon: "twitter" },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/gleama1",
+    icon: "facebook",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/gleama-pvt-ltd/",
+    icon: "linkedin",
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/gleamacompany",
+    icon: "instagram",
+  },
 ] as const;
 
 export const SEO_DEFAULTS: SeoDefaults = {

@@ -1,12 +1,21 @@
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
+import { COMPANY } from "@/constants/site";
 import { getPublicContactEmail } from "@/lib/env";
 
 export const CONTACT_DETAILS = [
   {
     label: "Phone",
-    value: "+94 11 000 0000",
-    href: "tel:+94110000000",
+    value: COMPANY.phone,
+    href: COMPANY.phoneTel,
     icon: Phone,
+  },
+  {
+    label: "WhatsApp",
+    value: COMPANY.whatsapp,
+    href: COMPANY.whatsappUrl,
+    icon: WhatsAppIcon,
+    external: true,
   },
   {
     label: "Email",
@@ -16,7 +25,7 @@ export const CONTACT_DETAILS = [
   },
   {
     label: "Address",
-    value: "Level 12, East Tower, World Trade Center, Colombo 01, Sri Lanka",
+    value: COMPANY.addressLines.join("\n"),
     icon: MapPin,
   },
   {

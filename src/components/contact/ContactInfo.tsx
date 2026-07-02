@@ -30,7 +30,7 @@ export default function ContactInfo({ className }: ContactInfoProps) {
               <span className="text-xs font-semibold tracking-[0.12em] text-accent uppercase">
                 {item.label}
               </span>
-              <span className="mt-1 block text-body-md text-neutral-700">
+              <span className="mt-1 block text-body-md text-neutral-700 whitespace-pre-line">
                 {item.value}
               </span>
             </>
@@ -49,6 +49,9 @@ export default function ContactInfo({ className }: ContactInfoProps) {
                   <a
                     href={item.href}
                     className="block transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                    {...("external" in item && item.external
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
                   >
                     {content}
                   </a>

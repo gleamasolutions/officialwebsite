@@ -28,22 +28,22 @@ export const DIRECTORS: Director[] = [
     shortDescription:
       "A dynamic young entrepreneur and strategic business leader recognized for his passion for investments, innovation, branding and business development.",
     fullBiography: [
-      "Mr. Kosala Perera is a dynamic young entrepreneur and strategic business leader in Sri Lanka, recognized for his passion for investments, innovation, branding, and business development. An alumnus of S. Thomas' College, Bandarawela, he has built a strong foundation in entrepreneurship and investment management, accumulating over four years of practical experience in these fields.",
+      "Mr. Kosala Perera is a dynamic young entrepreneur and strategic business leader in Sri Lanka, recognized for his passion for investments, innovation, branding, and business development. An alumnus of S.\u00A0Thomas'\u00A0College, Bandarawela, he has built a strong foundation in entrepreneurship and investment management, accumulating over four years of practical experience in these fields.",
       "Currently pursuing studies in the Information Technology sector, Mr. Perera combines technological knowledge with business acumen to identify emerging opportunities and drive sustainable growth. He serves as the Director and Chief Executive Officer of 360 Technologies International (Pvt) Ltd, where he leads the company's strategic vision and innovation initiatives.",
-      "Committed to continuous learning and creativity, Mr. Perera consistently seeks to develop innovative solutions, create value-driven ventures, and contribute to the advancement of Sri Lanka's business landscape through forward-thinking leadership and entrepreneurial excellence.",
+      "Committed to continuous learning and creativity, Mr. Perera consistently seeks to develop innovative solutions, create value-driven ventures, and contribute to the advancement of Sri Lanka's business landscape through forward thinking leadership and entrepreneurial excellence.",
     ],
     sections: {
       profileSummary:
         "A dynamic young entrepreneur and strategic business leader with over four years of practical experience in entrepreneurship and investment management, driven by a passion for investments, innovation, branding and business development.",
       professionalBiography: [
-        "Mr. Kosala Perera is a dynamic young entrepreneur and strategic business leader in Sri Lanka, recognized for his passion for investments, innovation, branding, and business development. An alumnus of S. Thomas' College, Bandarawela, he has built a strong foundation in entrepreneurship and investment management, accumulating over four years of practical experience in these fields.",
+        "Mr. Kosala Perera is a dynamic young entrepreneur and strategic business leader in Sri Lanka, recognized for his passion for investments, innovation, branding, and business development. An alumnus of S.\u00A0Thomas'\u00A0College, Bandarawela, he has built a strong foundation in entrepreneurship and investment management, accumulating over four years of practical experience in these fields.",
         "Currently pursuing studies in the Information Technology sector, Mr. Perera combines technological knowledge with business acumen to identify emerging opportunities and drive sustainable growth. He serves as the Director and Chief Executive Officer of 360 Technologies International (Pvt) Ltd, where he leads the company's strategic vision and innovation initiatives.",
         "Committed to continuous learning and creativity, Mr. Perera consistently seeks to develop innovative solutions, create value-driven ventures, and contribute to the advancement of Sri Lanka's business landscape through forward-thinking leadership and entrepreneurial excellence.",
       ],
       currentPosition:
         "Chairman of Gleama (Pvt) Ltd and Director & Chief Executive Officer of 360 Technologies International (Pvt) Ltd, where he leads strategic vision and innovation initiatives.",
       leadershipPhilosophy:
-        "Guided by a commitment to continuous learning and creativity, Mr. Perera believes in developing innovative solutions and value-driven ventures — contributing to the advancement of Sri Lanka's business landscape through forward-thinking leadership and entrepreneurial excellence.",
+        "Guided by a commitment to continuous learning and creativity, Mr. Perera believes in developing innovative solutions and value driven ventures contributing to the advancement of Sri Lanka's business landscape through forward-thinking leadership and entrepreneurial excellence.",
     },
   },
   {
@@ -70,7 +70,7 @@ export const DIRECTORS: Director[] = [
       currentPosition:
         "Chief Executive Officer and Director of Gleama (Pvt) Ltd, responsible for operational strategy and management across all business verticals.",
       leadershipPhilosophy:
-        "Mr. Ranasinghe champions data-driven decision-making and sustainable growth — building dynamic business solutions that deliver long-term value while fostering a culture of innovation, trust and operational excellence.",
+        "Mr. Ranasinghe champions data-driven decision-making and sustainable growth by building dynamic business solutions that deliver long-term value while fostering a culture of innovation, trust and operational excellence.",
     },
   },
 ];
